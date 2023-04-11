@@ -42,7 +42,7 @@ const SignUpForm = () => {
           {...register("username")}
           className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
         />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.username?.message?.toString()}</p>
+        <p className="mt-1 px-1 text-xs text-red-600">{errors.username?.message}</p>
       </div>
       <div>
         <Input
@@ -51,7 +51,7 @@ const SignUpForm = () => {
           {...register("email")}
           className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
         />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.email?.message?.toString()}</p>
+        <p className="mt-1 px-1 text-xs text-red-600">{errors.email?.message}</p>
       </div>
       <div>
         <Input
@@ -60,7 +60,7 @@ const SignUpForm = () => {
           {...register("password")}
           className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
         />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.password?.message?.toString()}</p>
+        <p className="mt-1 px-1 text-xs text-red-600">{errors.password?.message}</p>
       </div>
       <Button
         type="submit"

@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     res.status(400).json({});
   }
 
-  db.insert(users).values({
+  await db.insert(users).values({
     id: msg.data.id,
     username: msg.data.username,
     email: msg.data.email_addresses[0].email_address,

@@ -14,6 +14,9 @@ export default async function Home() {
         <Link href="/register" className="hover:underline">
           Register
         </Link>
+        <Link href="/login" className="hover:underline">
+          Login
+        </Link>
       </SignedOut>
     </main>
   );

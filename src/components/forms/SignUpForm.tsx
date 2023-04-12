@@ -10,7 +10,8 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSignUpClerk } from "@/lib/auth";
 import { signUpSchema } from "@/types/schemas";
-import { FormData } from "@/types/types";
+import { SignUpFormData } from "@/types/types";
+import { InputGroup } from "./InputGroup";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -29,39 +30,25 @@ const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
   });
-  const onSubmit = (data: FormData) => trigger(data);
+  const onSubmit = (data: SignUpFormData) => trigger(data);
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex w-80 flex-col gap-2">
-      <div>
-        <Input
-          placeholder="Username"
-          type="text"
-          {...register("username")}
-          className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
-        />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.username?.message}</p>
-      </div>
-      <div>
-        <Input
-          placeholder="Email"
-          type="email"
-          {...register("email")}
-          className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
-        />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.email?.message}</p>
-      </div>
-      <div>
-        <Input
-          placeholder="Password"
-          type="password"
-          {...register("password")}
-          className="border-cyan-600 focus:ring-1 focus:ring-cyan-600"
-        />
-        <p className="mt-1 px-1 text-xs text-red-600">{errors.password?.message}</p>
-      </div>
+      <InputGroup
+        type="text"
+        placeholder="Username"
+        {...register("username")}
+        errorMessage={errors.username?.message}
+      />
+      <InputGroup errorMessage={errors.email?.message} type="email" placeholder="Email" {...register("email")} />
+      <InputGroup
+        errorMessage={errors.password?.message}
+        type="password"
+        placeholder="Password"
+        {...register("password")}
+      />
       <Button
         type="submit"
         variant="default"

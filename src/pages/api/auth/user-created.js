@@ -2,14 +2,14 @@ import { Webhook } from "svix";
 import { buffer } from "micro";
 import db from "../../../db/db";
 import { users } from "@/db/schema";
-import { env } from "@/env.mjs";
+
 export const config = {
   api: {
     bodyParser: false,
   },
 };
 
-const secret = env.WEBHOOK_SECRET;
+const secret = process.env.WEBHOOK_SECRET;
 
 export default async function handler(req, res) {
   const payload = (await buffer(req)).toString();

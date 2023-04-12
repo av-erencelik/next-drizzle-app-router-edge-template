@@ -11,6 +11,7 @@ const server = z.object({
   DATABASE_PASSWORD: z.string(),
   CLERK_SECRET_KEY: z.string().min(1),
   NODE_ENV: z.enum(["development", "test", "production"]),
+  WEBHOOK_SECRET: z.string().min(1),
 });
 
 /**
@@ -36,6 +37,7 @@ const processEnv = {
   DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
   CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+  WEBHOOK_SECRET: process.env.WEBHOOK_SECRET,
 };
 
 // Don't touch the part below

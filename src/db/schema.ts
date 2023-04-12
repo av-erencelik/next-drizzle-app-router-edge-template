@@ -5,6 +5,6 @@ export const users = mysqlTable("users", {
   id: varchar("id", { length: 256 })
     .primaryKey()
     .default(sql`(UUID())`),
-  fullName: text("full_name").notNull(),
-  phone: varchar("phone", { length: 256 }),
+  username: text("username").notNull(),
+  email: text("email").notNull(),
 });

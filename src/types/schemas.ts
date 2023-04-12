@@ -21,3 +21,8 @@ export const signInSchema = z
     password: z.string().min(6, "Password must be at least 6 characters"),
   })
   .required();
+export const postSchema = z
+  .object({
+    text: z.string().min(1, "Text is required"),
+  })
+  .required();

@@ -1,5 +1,5 @@
 import PostForm from "@/components/forms/PostForm";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs/app-beta";
+import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
 import Link from "next/link";
 export const runtime = "edge";
 export const revalidate = 0;

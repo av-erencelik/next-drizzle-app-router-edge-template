@@ -28,14 +28,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   if (msg.type === "user.created") {
     await db.insert(users).values({
-      id: msg.data.id,
+      userId: msg.data.id,
       username: msg.data.username,
       email: msg.data.email_addresses[0].email_address,
     });
   } else if (msg.type === "user.deleted") {
-    await db.delete(users).where(eq(users.id, msg.data.id));
+    await db.delete(users).where(eq(users.userId, msg.data.id));
   } else {
-    db.update(users).set({ username: msg.data.username }).where(eq(users.id, msg.data.id));
+    db.update(users).set({ username: msg.data.username }).where(eq(users.userId, msg.data.id));
   }
 
   res.json({});

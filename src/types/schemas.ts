@@ -1,5 +1,6 @@
 import { z } from "zod";
-
+import { createInsertSchema } from "drizzle-zod";
+import { posts } from "@/db/schema";
 export const signUpSchema = z
   .object({
     username: z
@@ -26,3 +27,5 @@ export const postSchema = z
     text: z.string().min(1, "Text is required"),
   })
   .required();
+
+export const insertPostSchema = createInsertSchema(posts);

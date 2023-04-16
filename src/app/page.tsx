@@ -5,7 +5,7 @@ export const runtime = "edge";
 export const revalidate = 0;
 export default async function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-20 bg-cyan-50">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-20 bg-cyan-50">
       <div className="flex grow items-end justify-center">
         <h1 className="scroll-m-20 bg-gradient-to-r from-cyan-400 to-cyan-800 bg-clip-text text-center text-4xl font-extrabold tracking-tight text-transparent sm:max-w-[65%] lg:text-6xl">
           Next 13-Drizzle Orm-Planetscale-Clerk-Edge Runtime Template

@@ -24,8 +24,27 @@ export const signInSchema = z
   .required();
 export const postSchema = z
   .object({
-    text: z.string().min(1, "Text is required"),
+    text: z
+      .string()
+      .min(1, "Text is required")
+      .max(191, "Max 191 characters")
+      .regex(
+        new RegExp!(
+          /^(?:(?!\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]|\uD83E[\uDD10-\uDDFF]|[\u2600-\u27BF]|\uD83E[\uDDF0-\uDDFF]).)*$/
+        ),
+        "No emojis allowed"
+      ),
   })
   .required();
 
-export const insertPostSchema = createInsertSchema(posts);
+export const insertPostSchema = createInsertSchema(posts, {
+  text: z
+    .string()
+    .max(191, "Max 191 characters")
+    .regex(
+      new RegExp!(
+        /^(?:(?!\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]|\uD83E[\uDD10-\uDDFF]|[\u2600-\u27BF]|\uD83E[\uDDF0-\uDDFF]).)*$/
+      ),
+      "No emojis allowed"
+    ),
+});

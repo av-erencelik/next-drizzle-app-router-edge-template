@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --toastify-text-color-light: #155e75;
+  --toastify-color-success: #155e75;
+}
+.Toastify__close-button {
+  color: var(--toastify-text-color-light);
+}
+
+.Toastify__close-button > svg {
+  color: var(--toastify-text-color-light);
+  fill: var(--toastify-text-color-light);
+}
+.Toastify__close-button:hover,
+.Toastify__close-button:focus {
+  color: var(--toastify-text-color-light);
+  fill: var(--toastify-text-color-light);
+}

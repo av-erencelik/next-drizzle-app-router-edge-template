@@ -16,15 +16,14 @@ export const posts = mysqlTable(
   "posts",
   {
     id: serial("id").primaryKey().notNull(),
-    user_id: varchar("user_id", { length: 36 }).notNull(),
+    userId: varchar("user_id", { length: 36 }).notNull(),
     slug: varchar("slug", { length: 191 }).notNull(),
-    title: varchar("title", { length: 191 }).notNull(),
-    text: text("text").notNull(),
+    text: varchar("title", { length: 191 }).notNull(),
     created_at: timestamp("created_at").notNull().defaultNow(),
     updated_at: timestamp("updated_at").notNull().defaultNow().onUpdateNow(),
   },
   (post) => ({
-    userIdIndex: index("posts__user_id__idx").on(post.user_id),
-    postSlugIndex: uniqueIndex("posts__slug__idx").on(post.slug, post.user_id),
+    userIdIndex: index("posts__user_id__idx").on(post.userId),
+    postSlugIndex: uniqueIndex("posts__slug__idx").on(post.slug, post.userId),
   })
 );

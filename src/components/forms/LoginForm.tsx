@@ -7,8 +7,8 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSignInClerk } from "@/lib/auth";
-import { signInSchema, signUpSchema } from "@/types/schemas";
-import { SignInFormData, SignUpFormData } from "@/types/types";
+import { signInSchema } from "@/types/schemas";
+import { SignInFormData } from "@/types/types";
 import { InputGroup } from "./InputGroup";
 const LoginForm = () => {
   const router = useRouter();
@@ -55,7 +55,7 @@ const LoginForm = () => {
             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait
           </>
         ) : (
-          "Register"
+          "Login"
         )}
       </Button>
 

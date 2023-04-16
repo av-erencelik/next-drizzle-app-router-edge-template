@@ -1,6 +1,5 @@
 import { SignInFormData, SignUpFormData } from "@/types/types";
 import { useSignIn, useSignUp } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 import useSWRMutation from "swr/mutation";
 export const useSignUpClerk = () => {
   const { signUp, setActive } = useSignUp();
@@ -36,7 +35,6 @@ export const useSignInClerk = () => {
       })
       .then((response) => {
         if (response.status === "complete") {
-          console.log(response);
           setActive?.({ session: response.createdSessionId });
         }
       })

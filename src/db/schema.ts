@@ -1,7 +1,7 @@
-import { text, mysqlTable, varchar, uniqueIndex, timestamp, index, serial } from "drizzle-orm/mysql-core";
+import { mysqlTable, varchar, uniqueIndex, timestamp, index, serial } from "drizzle-orm/mysql-core";
 
-export const users = mysqlTable(
-  "users",
+export const user = mysqlTable(
+  "user",
   {
     id: serial("id").primaryKey().notNull(),
     userId: varchar("user_id", { length: 36 }).notNull(),
@@ -12,8 +12,8 @@ export const users = mysqlTable(
     emailIndex: uniqueIndex("users__email__idx").on(user.email),
   })
 );
-export const posts = mysqlTable(
-  "posts",
+export const post = mysqlTable(
+  "post",
   {
     id: serial("id").primaryKey().notNull(),
     userId: varchar("user_id", { length: 36 }).notNull(),

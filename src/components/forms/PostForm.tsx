@@ -4,21 +4,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/Button";
 import { postSchema } from "@/types/schemas";
 import { PostData } from "@/types/types";
-import { InputGroup } from "./InputGroup";
 import { usePost } from "@/lib/posts";
 import { Loader2 } from "lucide-react";
 import { Textarea } from "../ui/Textarea";
-
+import { useSWRConfig } from "swr";
+import { unstable_serialize } from "swr/infinite";
 const PostForm = () => {
+  const { mutate } = useSWRConfig();
   const { error, trigger, isMutating } = usePost();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<PostData>({
     resolver: zodResolver(postSchema),
   });
-  const onSubmit = (data: PostData) => trigger(data);
+  const onSubmit = async (data: PostData) => {
+    await trigger(data);
+    mutate(unstable_serialize((page) => "/api/post?page=1"));
+    reset();
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex w-[300px] flex-col gap-1">

@@ -1,7 +1,7 @@
 import { Webhook } from "svix";
 import { buffer } from "micro";
 import db from "../../../db/db";
-import { users } from "@/db/schema";
+import { user } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { NextApiRequest, NextApiResponse } from "next";
 import { UserWebhook } from "@/types/types";
@@ -27,15 +27,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
   if (msg.type === "user.created") {
-    await db.insert(users).values({
+    await db.insert(user).values({
       userId: msg.data.id,
       username: msg.data.username,
       email: msg.data.email_addresses[0].email_address,
     });
   } else if (msg.type === "user.deleted") {
-    await db.delete(users).where(eq(users.userId, msg.data.id));
+    await db.delete(user).where(eq(user.userId, msg.data.id));
   } else {
-    db.update(users).set({ username: msg.data.username }).where(eq(users.userId, msg.data.id));
+    db.update(user).set({ username: msg.data.username }).where(eq(user.userId, msg.data.id));
   }
 
   res.json({});

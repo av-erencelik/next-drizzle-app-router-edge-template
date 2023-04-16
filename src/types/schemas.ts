@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { createInsertSchema } from "drizzle-zod";
-import { posts } from "@/db/schema";
+import { post } from "@/db/schema";
 export const signUpSchema = z
   .object({
     username: z
@@ -37,7 +37,7 @@ export const postSchema = z
   })
   .required();
 
-export const insertPostSchema = createInsertSchema(posts, {
+export const insertPostSchema = createInsertSchema(post, {
   text: z
     .string()
     .max(191, "Max 191 characters")

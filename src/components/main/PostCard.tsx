@@ -1,16 +1,20 @@
 import { PostWithUser } from "@/db/dbtypes";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-dayjs.extend(relativeTime);
+import { AnimatePresence, motion } from "framer-motion";
+import PostInner from "./PostInner";
 const PostCard = ({ post, user }: PostWithUser) => {
   return (
-    <div className={`flex w-full items-end justify-between gap-2 rounded-lg border border-cyan-600 p-4`}>
-      <div className="flex flex-col gap-2">
-        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-50">{user?.username}</h4>
-        <p className="text-sm leading-none">{post.text}</p>
-      </div>
-      <p className="text-sm leading-none">{dayjs(post.created_at).fromNow()}</p>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        layout
+        className={`flex w-full items-end justify-between gap-2 rounded-lg border border-cyan-600 p-4`}
+        initial="pre"
+        animate="visible"
+        variants={{ pre: { opacity: 0 }, visible: { opacity: 1 } }}
+        transition={{ duration: 0.5 }}
+      >
+        <PostInner username={user!.username} createdAt={post.created_at} text={post.text} />
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

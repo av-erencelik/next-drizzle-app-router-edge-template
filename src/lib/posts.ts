@@ -48,5 +48,7 @@ export const useGetFeed = () => {
         throw new Error(err.message);
       });
   };
-  return useSWRInfinite(getKey, fetcher);
+  return useSWRInfinite(getKey, fetcher, {
+    revalidateOnFocus: false,
+  });
 };

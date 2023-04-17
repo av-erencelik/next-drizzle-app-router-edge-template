@@ -1,5 +1,6 @@
 import PostForm from "@/components/forms/PostForm";
 import FeedPrefetch from "@/components/main/FeedPrefetch";
+
 import LogoutButton from "@/components/ui/LogoutButton";
 import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
 import Link from "next/link";

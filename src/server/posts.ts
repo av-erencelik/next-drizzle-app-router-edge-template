@@ -1,3 +1,4 @@
+import "server-only";
 import db from "@/db/db";
 import { NewPost } from "@/db/dbtypes";
 import { post, user } from "@/db/schema";

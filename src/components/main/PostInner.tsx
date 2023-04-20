@@ -1,16 +1,18 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/Card";
 dayjs.extend(relativeTime);
 const PostInner = ({ username, text, createdAt }: { username: string; text: string; createdAt: Date }) => {
   return (
-    <>
-      <div className="flex flex-col gap-2">
-        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-50">{username}</h4>
-        <p className="text-sm leading-none">{text}</p>
-      </div>
-
-      <p className="text-sm leading-none">{dayjs(createdAt).fromNow()}</p>
-    </>
+    <Card className="border-primary">
+      <CardHeader>
+        <CardTitle>{username}</CardTitle>
+        <div className="flex justify-between">
+          <CardDescription>{text}</CardDescription>
+          <CardDescription>{dayjs(createdAt).fromNow()}</CardDescription>
+        </div>
+      </CardHeader>
+    </Card>
   );
 };
 

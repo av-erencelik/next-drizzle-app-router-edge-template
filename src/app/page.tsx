@@ -1,6 +1,6 @@
 import PostForm from "@/components/forms/PostForm";
 import FeedPrefetch from "@/components/main/FeedPrefetch";
-
+import { buttonVariants } from "@/components/ui/Button";
 import LogoutButton from "@/components/ui/LogoutButton";
 import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
 import Link from "next/link";
@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col items-center justify-center gap-20 bg-cyan-50 pb-10">
       <div className="mt-40 flex grow items-end justify-center">
-        <h1 className="scroll-m-20 bg-gradient-to-r from-cyan-400 to-cyan-800 bg-clip-text text-center text-4xl font-extrabold tracking-tight text-transparent sm:max-w-[65%] lg:text-6xl">
+        <h1 className="scroll-m-20 bg-gradient-to-r from-ring to-primary bg-clip-text text-center text-4xl font-extrabold tracking-tight text-transparent sm:max-w-[65%] lg:text-6xl">
           Next 13-Drizzle Orm-Planetscale-Clerk-Edge Runtime Template
         </h1>
       </div>
@@ -22,16 +22,10 @@ export default async function Home() {
         </SignedIn>
         <SignedOut>
           <div className="flex gap-5">
-            <Link
-              href="/register"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-cyan-800 px-4 py-2 text-sm font-medium text-cyan-50 transition-colors hover:bg-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-            >
+            <Link href="/register" className={buttonVariants({ variant: "default" })}>
               Register
             </Link>
-            <Link
-              href="/login"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-cyan-800 px-4 py-2 text-sm font-medium text-cyan-50 transition-colors hover:bg-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-            >
+            <Link href="/login" className={buttonVariants({ variant: "default" })}>
               Login
             </Link>
           </div>

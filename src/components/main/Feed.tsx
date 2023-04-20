@@ -17,11 +17,7 @@ const Feed = () => {
           {posts?.map(({ post, user }, index) => {
             return <PostCard key={post.slug} post={post} user={user} />;
           })}
-          <Button
-            onClick={() => setSize(size + 1)}
-            disabled={isReachingEnd || isValidating}
-            className="bg-cyan-800 hover:bg-cyan-600 focus:ring-1 focus:ring-cyan-600"
-          >
+          <Button onClick={() => setSize(size + 1)} disabled={isReachingEnd || isValidating}>
             {isValidating ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait

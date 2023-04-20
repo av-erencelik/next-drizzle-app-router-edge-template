@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.16.2",
@@ -18,7 +20,7 @@
     "@upstash/ratelimit": "^0.4.2",
     "autoprefixer": "10.4.14",
     "buffer": "^6.0.3",
-    "class-variance-authority": "^0.5.1",
+    "class-variance-authority": "^0.5.2",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
@@ -50,8 +52,19 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-interactions": "^7.0.6",
+    "@storybook/addon-links": "^7.0.6",
+    "@storybook/addon-styling": "^1.0.1",
+    "@storybook/blocks": "^7.0.6",
+    "@storybook/nextjs": "^7.0.6",
+    "@storybook/react": "^7.0.6",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "drizzle-kit": "^0.17.1-609a4f0",
+    "eslint-plugin-storybook": "^0.6.11",
     "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7"
+    "prettier-plugin-tailwindcss": "^0.2.7",
+    "storybook": "^7.0.6",
+    "storybook-tailwind-dark-mode": "^1.0.22"
   }
 }

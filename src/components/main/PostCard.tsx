@@ -6,7 +6,7 @@ const PostCard = ({ post, user }: PostWithUser) => {
     <AnimatePresence>
       <motion.div
         layout
-        className={`flex w-[300px] items-end justify-between gap-2 rounded-lg border border-cyan-600 p-4 sm:w-full`}
+        className="w-[300px] sm:w-full"
         initial="pre"
         animate="visible"
         variants={{ pre: { opacity: 0 }, visible: { opacity: 1 } }}

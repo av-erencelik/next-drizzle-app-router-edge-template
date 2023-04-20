@@ -44,12 +44,7 @@ const LoginForm = () => {
         placeholder="Password"
         {...register("password")}
       />
-      <Button
-        type="submit"
-        variant="default"
-        disabled={isMutating}
-        className="bg-cyan-800 hover:bg-cyan-600 focus:ring-1 focus:ring-cyan-600"
-      >
+      <Button type="submit" variant="default" disabled={isMutating}>
         {isMutating ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait
@@ -59,7 +54,7 @@ const LoginForm = () => {
         )}
       </Button>
 
-      <p className="mt-1 px-1 text-center text-xs text-red-600">
+      <p className="mt-1 px-1 text-center text-xs text-destructive">
         {error !== undefined ? (error instanceof Error ? error.message : "An error occurred") : ""}
       </p>
     </form>

@@ -11,7 +11,6 @@ const LogoutButton = () => {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <Button
-      className="bg-cyan-800 hover:bg-cyan-600 focus:ring-1 focus:ring-cyan-600"
       onClick={async () => {
         setIsLoading(true);
         await signOut();

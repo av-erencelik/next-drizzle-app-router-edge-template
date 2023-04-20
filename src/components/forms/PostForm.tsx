@@ -28,17 +28,8 @@ const PostForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex w-[300px] flex-col gap-1">
-        <Textarea
-          placeholder="Share a post"
-          {...register("text")}
-          errorMessage={errors.text?.message}
-          className=" h-[100px] resize-none border-cyan-600 focus:ring-1 focus:ring-cyan-600"
-        />
-        <Button
-          type="submit"
-          variant="default"
-          className="bg-cyan-800 hover:bg-cyan-600 focus:ring-1 focus:ring-cyan-600"
-        >
+        <Textarea placeholder="Share a post" {...register("text")} errorMessage={errors.text?.message} />
+        <Button type="submit" variant="default">
           {isMutating ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait
@@ -48,7 +39,7 @@ const PostForm = () => {
           )}
         </Button>
       </div>
-      <p className="mt-1 px-1 pb-2 text-center text-sm text-red-600">
+      <p className="mt-1 px-1 pb-2 text-center text-sm text-destructive">
         {error !== undefined ? (error instanceof Error ? error.message : "An error occurred") : ""}
       </p>
     </form>

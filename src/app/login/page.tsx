@@ -1,7 +1,7 @@
 import LoginForm from "@/components/forms/LoginForm";
 import Image from "next/image";
 import React from "react";
-export const runtime = "edge";
+
 export const revalidate = 0;
 const Login = () => {
   return (

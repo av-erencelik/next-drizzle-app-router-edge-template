@@ -1,4 +1,3 @@
-export const runtime = "edge";
 const Blocked = () => {
   return (
     <div className="absolute inset-0 bg-cyan-50">

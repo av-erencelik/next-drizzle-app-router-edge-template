@@ -1,7 +1,7 @@
 import SignUpForm from "@/components/forms/SignUpForm";
 import Image from "next/image";
 import React from "react";
-export const runtime = "edge";
+
 export const revalidate = 0;
 const SignUpPage = () => {
   return (

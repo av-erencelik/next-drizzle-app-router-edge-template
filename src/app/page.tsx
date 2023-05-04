@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/Button";
 import LogoutButton from "@/components/ui/LogoutButton";
 import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta";
 import Link from "next/link";
-export const runtime = "edge";
+
 export const revalidate = 0;
 export default async function Home() {
   return (

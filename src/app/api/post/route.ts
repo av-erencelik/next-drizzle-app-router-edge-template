@@ -5,8 +5,6 @@ import slugify from "slugify";
 import { checkPostSlug, getPosts, sharePost } from "@/server/posts";
 import { NewPost } from "@/db/dbtypes";
 
-export const runtime = "edge";
-
 export async function POST(req: Request) {
   const { userId } = auth();
   if (!userId) {
